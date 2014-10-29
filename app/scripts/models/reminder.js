@@ -7,7 +7,7 @@ BackboneTimer.Models = BackboneTimer.Models || {};
 
     BackboneTimer.Models.Reminder = Backbone.Model.extend({
 
-        url: '',
+        url: "https://tiny-pizza-server.herokuapp.com/collections/jams-reminders",
 
         initialize: function() {
         },
