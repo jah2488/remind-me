@@ -35,7 +35,7 @@ BackboneTimer.Views = BackboneTimer.Views || {};
             this.listenTo(BackboneTimer.Reminders, 'reset', this.addAll);
 
             this.render();
-            BackboneTimer.Reminders.fetch();
+            BackboneTimer.Reminders.fetch({reset:true});
         },
 
         addOne: function (reminder) {
@@ -43,8 +43,8 @@ BackboneTimer.Views = BackboneTimer.Views || {};
             $('#existingReminders table tbody').append(reminderView.render().el);
         },
 
-        addAll: function () {
-            console.log('addAll Called');
+        addAll: function (reminders) {
+            _.each(reminders.models, this.addOne);
         },
 
         render: function () {

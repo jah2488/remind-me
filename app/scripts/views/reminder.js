@@ -25,7 +25,15 @@ BackboneTimer.Views = BackboneTimer.Views || {};
         },
 
         render: function () {
-            this.$el.html(this.template(this.model.toJSON()));
+            var viewData = _.extend(this.model.toJSON(), {
+                formattedEndTime: function () {
+                    return moment().startOf('day')
+                                   .add(this.endTime.split(':')[0], 'hours')
+                                   .add(this.endTime.split(':')[1], 'minutes')
+                                   .fromNow();
+                }
+            });
+            this.$el.html(this.template(viewData));
             console.log('render called in reminderView');
             return this;
         }

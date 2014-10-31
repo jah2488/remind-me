@@ -22,7 +22,7 @@ BackboneTimer.Models = BackboneTimer.Models || {};
 
         parse: function(response, options)  {
             return response;
-        }
-    });
+        },
 
+    });
 })();
